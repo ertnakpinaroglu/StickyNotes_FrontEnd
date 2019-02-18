@@ -8,39 +8,51 @@
         <a href="#" class="list-group-item list-group-item-action">
           <i class="fa fa-home" aria-hidden="true"></i> Anasayfa
         </a>
-
       </div>
     </div>
-
-    <div class="col-md-9 mt-5 ">
-      <div class="card text-white col-md-3 mr-5 mb-4 " style="float: left; background-color: blue; ">
-        <div class="card-header">Header</div>
+    <div class="col-md-9 mt-5">
+      <div *ngFor="let board of boardList" class="card text-white col-md-3 mr-5 mb-4" [style.background-color]="board.color"
+        style="float: left;">
+        <div class="card-header"> {{board.title}} Board </div>
         <div class="card-body">
-          <h4 class="card-title">Primary card title</h4>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-            content.</p>
+          <h4 class="card-title">{{board.title}} </h4>
+
         </div>
       </div>
 
+      <div data-toggle="modal" data-target="#exampleModal" class="card text-white bg-info col-md-3 mr-5 mb-4" style="float: left;">
+        <div class="card-header"> Pano Ekle </div>
+        <div class="card-body">
+          <h4 class="card-title"> Pano Oluştur </h4>
+          <!-- Button trigger modal -->
+        </div>
+      </div>
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <input type="text" name="getTitle" ng-model="getTitle" />
+              <input type="color" value="#ff0000" name="getColor" ng-model="getColor" />
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" (click)="tiklandi(getColor,getTitle)"> Save changes</button>
+            </div>
+          </div>
+        </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      </div>
+      <!-- Modal Finish  -->
 
     </div>
-
-
 
   </div>
 </div>
