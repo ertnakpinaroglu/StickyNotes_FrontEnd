@@ -39,12 +39,30 @@
               </button>
             </div>
             <div class="modal-body">
-              <input type="text" name="getTitle" ng-model="getTitle" />
-              <input type="color" value="#ff0000" name="getColor" ng-model="getColor" />
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary" (click)="tiklandi(getColor,getTitle)"> Save changes</button>
+              <form [formGroup]="boardAddGroup" (ngSubmit)="addBoard()">
+                <div class="form-group">
+                  <div class="col-md-8">
+                    <input type="text" id="title" formControlName="title" class="form-control" placeholder="Lütfen başlık giriniz" />
+                    <span class="help-block" *ngIf="boardAddGroup.get('title').hasError('required') && boardAddGroup.get('title').touched">
+                      Başlık zorunludur. </span>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="form-group">
+                    <div class="col-md-8">
+                      <input type="color" id="color" formControlName="color" class="form-control" value="#ff0000" />
+                      <span class="help-block" *ngIf="boardAddGroup.get('color').hasError('required') && boardAddGroup.get('color').touched"></span>
+                    </div>
+                  </div>
+                </div>
+
+
+                <button type="submit" [disabled]="!boardAddGroup.valid" class="btn btn-large btn-block btn-success">
+                  Oluştur </button>
+
+
+              </form>
             </div>
           </div>
         </div>
