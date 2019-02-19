@@ -27,8 +27,10 @@ export class BoardComponent implements OnInit {
 
     createAddBoardForm() {
         this.boardAddGroup = this.formBuilder.group(
-            { color: ["", Validators.required] },
-            { title: ["", Validators.required] }
+            {
+                title: ["", Validators.required],
+                color: ["", Validators.required]
+            }
         )
     }
 

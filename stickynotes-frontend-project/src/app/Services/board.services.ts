@@ -25,7 +25,7 @@ export class BoardService implements OnInit {
     }
 
     addBoard(board) {
-        this.httpClient.post(this.apiUrl + "/AddBoard", board).subscribe();
+        this.httpClient.post(this.apiUrl + "Board/AddBoard", board).subscribe();
     }
 
 

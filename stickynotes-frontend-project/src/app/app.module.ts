@@ -4,6 +4,8 @@ import { HttpClientModule } from "@angular/common/http";
 import { AppComponent } from './app.component';
 import { NavComponent } from "./Components/NavComponent/nav.component";
 import { BoardComponent } from './Components/BoardComponent/board.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -12,7 +14,9 @@ import { BoardComponent } from './Components/BoardComponent/board.component';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

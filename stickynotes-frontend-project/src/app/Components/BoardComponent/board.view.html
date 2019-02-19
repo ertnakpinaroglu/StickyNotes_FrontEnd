@@ -12,7 +12,7 @@
     </div>
     <div class="col-md-9 mt-5">
       <div *ngFor="let board of boardList" class="card text-white col-md-3 mr-5 mb-4" [style.background-color]="board.color"
-        style="float: left;">
+        style="float: left; height: 150px;  ">
         <div class="card-header"> {{board.title}} Board </div>
         <div class="card-body">
           <h4 class="card-title">{{board.title}} </h4>
@@ -20,7 +20,7 @@
         </div>
       </div>
 
-      <div data-toggle="modal" data-target="#exampleModal" class="card text-white bg-info col-md-3 mr-5 mb-4" style="float: left;">
+      <div data-toggle="modal" data-target="#exampleModal" class="card text-white bg-info col-md-3 mr-5 mb-4" style="float: left; height: 150px; ">
         <div class="card-header"> Pano Ekle </div>
         <div class="card-body">
           <h4 class="card-title"> Pano Oluştur </h4>
