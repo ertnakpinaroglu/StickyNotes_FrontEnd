@@ -16,6 +16,8 @@ export class NavComponent implements OnInit {
 
     }
     allBoards: Board[]
+    currentBoard: Board;
+    currentBoardId;
     ngOnInit(): void {
         this.getBoards();
 
@@ -24,8 +26,12 @@ export class NavComponent implements OnInit {
     getBoards() {
         this.boardServices.getBoards().subscribe(boards => {
             this.allBoards = boards;
+
         });
     }
+
+
+
 
 
 }

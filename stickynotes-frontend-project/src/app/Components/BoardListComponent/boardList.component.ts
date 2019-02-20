@@ -3,6 +3,7 @@ import { BoardListServices } from '../../Services/boardList.services';
 import { ActivatedRoute } from '@angular/router';
 import { BoardService } from 'src/app/Services/board.services';
 import { Board } from '../../Models/board';
+import { BoardList } from '../../Models/boardList';
 
 @Component({
     selector: "app-boardList",
@@ -24,12 +25,14 @@ export class BoardListComponent implements OnInit {
 
     currrentBoardId: number;
     currentBoard: Board;
+    currentBoardList: BoardList[];
 
     // Reactive Forms
 
     ngOnInit(): void {
         this.getCurrentBoardId();
         this.getCurrentBoard();
+        this.getBoardLists();
     }
     getCurrentBoardId() {
         this.activatedRoute.params.subscribe(params => {
@@ -40,6 +43,12 @@ export class BoardListComponent implements OnInit {
     getCurrentBoard() {
         this.boardServices.getBoardById(this.currrentBoardId).subscribe(board => {
             this.currentBoard = board;
+        });
+    }
+
+    getBoardLists() {
+        this.boardlistServices.getBoardLists(this.currrentBoardId).subscribe(data => {
+            this.currentBoardList = data;
         });
     }
 

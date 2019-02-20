@@ -1,3 +1,17 @@
 <body [style.background-color]="currentBoard.color">
   <p> Component works </p>
+
+
+  <div class="row ml-5">
+
+    <div *ngFor="let list of currentBoardList" class="alert alert-dismissible alert-secondary ml-1 mr-3 " style="float:left;">
+
+      <p> {{list.listName}} </p>
+
+    </div>
+  </div>
+
+
+
+
 </body>

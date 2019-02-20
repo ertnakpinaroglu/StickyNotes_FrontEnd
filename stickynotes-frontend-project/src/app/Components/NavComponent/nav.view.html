@@ -16,9 +16,10 @@
 
           <i class="fa fa-book" aria-hidden="true"></i> Panolar </a>
         <div class="dropdown-menu">
-          <a *ngFor="let item of allBoards" class="dropdown-item" href="#"> {{allBoards.title}} </a>
+          <a *ngFor="let item of allBoards" class="dropdown-item" href="/getBoardList/{{item.boardId}}"> {{item.title}}
+          </a>
 
-          <a class="dropdown-item" href="#">Separated link</a>
+
         </div>
       </li>
       <form class="form-inline my-2 my-lg-0">
