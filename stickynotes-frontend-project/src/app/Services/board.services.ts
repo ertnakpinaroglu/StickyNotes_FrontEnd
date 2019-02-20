@@ -28,5 +28,9 @@ export class BoardService implements OnInit {
         this.httpClient.post(this.apiUrl + "Board/AddBoard", board).subscribe();
     }
 
+    getBoardById(boardId: number): Observable<Board> {
+        return this.httpClient.get<Board>(this.apiUrl + "/Board/GetBoardsById?id=" + boardId);
+    }
+
 
 }
