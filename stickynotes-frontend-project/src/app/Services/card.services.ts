@@ -19,4 +19,9 @@ export class CarServices implements OnInit {
         return this.httpClient.get<Card[]>(this.apiUrl + "Card/getCardByBoardListId?boardlistId=" + boardListId);
     }
 
+    addCard(card: Card) {
+        this.httpClient.post(this.apiUrl + "Card/AddCard", card).subscribe();
+    }
+
+
 }
