@@ -1,19 +1,41 @@
-<body [style.background-color]="currentBoard.color">
+<body *ngIf="currentBoard" [style.background-color]="currentBoard.color">
   <p> Component works </p>
 
 
-  <div class="row ml-5">
+  <div class="row ml-5" *ngIf="currentBoardList">
 
-    <div *ngFor="let list of currentBoardList" class="alert alert-dismissible alert-secondary ml-1 mr-3 " style="float:left;">
+    <div *ngFor="let list of currentBoardList; let i=index" class="alert alert-dismissible alert-secondary ml-1 mr-3 "
+      style="float:left;">
 
       <p> {{list.listName}} </p>
       <!-- kart ekleme yeri  -->
       <div class="form-group">
-        <button type="button" #inputBotton (click)="getBoardListId(list.boardListId)" class="btn btn-primary"
-          data-toggle="modal" data-target="#exampleModalLong">
+        <!-- cardlari getir  -->
+
+
+
+        <span data-toggle="modal" data-target="#update" *ngFor="let item of  list.cards" class="form-control">
+          {{item.cardName}} <i class="right fa fa-codepen" aria-hidden="true"></i> </span> <br />
+
+
+
+
+
+
+        <!-- cardlari getir son  -->
+
+
+
+
+
+
+        <button type="button" (click)="getBoardListId(list.boardListId)" class="btn btn-primary" data-toggle="modal"
+          data-target="#exampleModalLong">
           Başka Kart Ekle
           <!-- Başka kart Ekle <span [(ngModel)]="data"  > {{list.boardListId}} </span> -->
         </button>
+
+
       </div>
 
       <!-- Modal -->
@@ -39,8 +61,26 @@
                   Insert! </button>
 
               </form>
-              <h6> {{addCardGroup.status}} </h6>
-              <h6> {{addCardGroup.valid}} </h6>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="update" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <h4> Geliyorummm </h4>
+
             </div>
 
           </div>

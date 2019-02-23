@@ -59,6 +59,8 @@ export class BoardListComponent implements OnInit {
     getBoardLists() {
         this.boardlistServices.getBoardLists(this.currrentBoardId).subscribe(data => {
             this.currentBoardList = data;
+
+
         });
     }
     // Tiklanildiği zaman boardListId çeken method
@@ -84,6 +86,7 @@ export class BoardListComponent implements OnInit {
             this.alertifyServices.successMessage(this.objectCard.cardName + " başarıyla eklendi.");
         }
     }
+
 
 
 
