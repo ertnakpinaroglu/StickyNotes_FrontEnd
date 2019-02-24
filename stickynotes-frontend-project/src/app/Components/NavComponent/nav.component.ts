@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { BoardService } from '../../Services/board.services';
 import { Board } from '../../Models/board';
+import { Router } from "@angular/router";
 
 @Component({
     selector: "app-nav",
@@ -11,13 +12,12 @@ import { Board } from '../../Models/board';
 
 export class NavComponent implements OnInit {
 
-    constructor(private boardServices: BoardService) {
-
+    constructor(private boardServices: BoardService, private router: Router) {
 
     }
     allBoards: Board[]
-    currentBoard: Board;
-    currentBoardId;
+
+
     ngOnInit(): void {
         this.getBoards();
 
@@ -29,6 +29,8 @@ export class NavComponent implements OnInit {
 
         });
     }
+
+
 
 
 

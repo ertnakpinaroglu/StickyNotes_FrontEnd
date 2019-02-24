@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
+import { Component, OnInit, ViewChild, Input, Output, EventEmitter } from "@angular/core";
 import { BoardListServices } from '../../Services/boardList.services';
 import { ActivatedRoute } from '@angular/router';
 import { BoardService } from 'src/app/Services/board.services';
@@ -20,6 +20,7 @@ import { AlertifyServices } from '../../Services/alertify.services';
 export class BoardListComponent implements OnInit {
 
     @ViewChild('inputBotton') myInputBotton;
+
     constructor
         (
             private boardlistServices: BoardListServices,
@@ -43,16 +44,19 @@ export class BoardListComponent implements OnInit {
         this.getCurrentBoard();
         this.getBoardLists();
         this.addCardForm();
+
     }
     getCurrentBoardId() {
         this.activatedRoute.params.subscribe(params => {
             this.currrentBoardId = params["boardId"];
+            // console.log("BoardId: " + this.currrentBoardId);
         })
     }
 
     getCurrentBoard() {
         this.boardServices.getBoardById(this.currrentBoardId).subscribe(board => {
             this.currentBoard = board;
+            // console.log(this.currentBoard.boardId + " " + this.currentBoard.color);
         });
     }
 

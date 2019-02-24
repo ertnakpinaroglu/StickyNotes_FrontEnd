@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { BoardService } from 'src/app/Services/board.services';
 import { Board } from 'src/app/Models/board';
 import { FormBuilder, FormGroup, FormControl, Validators } from "@angular/forms";
@@ -12,7 +12,7 @@ import { AlertifyServices } from 'src/app/Services/alertify.services';
 })
 
 export class BoardComponent implements OnInit {
-
+    // @Input() globalDegisken: string;
     ngOnInit(): void {
         this.getBoards();
         this.createAddBoardForm();
