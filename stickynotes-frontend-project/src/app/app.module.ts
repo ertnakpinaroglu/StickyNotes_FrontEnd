@@ -8,13 +8,17 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './RouterSetting/RouterConfig';
 import { BoardListComponent } from './Components/BoardListComponent/boardList.component';
 import { RouterModule } from '@angular/router';
+import { LoginComponent } from "./Components/LoginComponent/login.component";
+import { RegisterComponent } from "./Components/RegisterComponent/register.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     BoardComponent,
-    BoardListComponent
+    BoardListComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
