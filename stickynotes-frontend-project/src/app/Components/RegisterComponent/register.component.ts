@@ -29,6 +29,7 @@ export class RegisterComponent implements OnInit {
 
     register() {
         if (this.registerForm.valid) {
+            console.log("Calistii register");
             this.registerDto = Object.assign({}, this.registerForm.value);
             this.authServices.register(this.registerDto);
         }

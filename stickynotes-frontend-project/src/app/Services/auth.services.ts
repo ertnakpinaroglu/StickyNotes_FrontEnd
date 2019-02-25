@@ -37,13 +37,14 @@ export class AuthServices implements OnInit {
     login(loginDto: LoginDto) {
         let headers = new HttpHeaders();
         headers = headers.append("Content-Type", "application/json");
-        this.httpClient.post(this.apiUrl + "Auth/login", loginDto, { headers: headers }).subscribe(token => {
+        this.httpClient.post(this.apiUrl + "Auth/login", loginDto, { headers: headers, responseType: "text" }).subscribe(token => {
             // geelen tokenı local'de sdaskla   
+            console.log("Token: " + token);
             this.saveToken(token);
             this.userToken = token;
             this.decodedToken = this.jwtHelper.decodeToken(token.toString());
             this.alertifyServices.successMessage("Giriş başarılı: Hoşgeldin: " + loginDto.username);
-            this.router.navigateByUrl(""); // anasayfaya yönlen
+            this.router.navigateByUrl("/board"); // anasayfaya yönlen
         });
     }
 

@@ -12,23 +12,25 @@ import { AuthServices } from 'src/app/Services/auth.services';
 export class LoginComponent implements OnInit {
 
     loginDto: LoginDto;
-    loginGroup: FormGroup;
+    loginForm: FormGroup;
     constructor(private authService: AuthServices, private formBuilder: FormBuilder) {
 
     }
     createLoginForm() {
-        this.loginGroup = this.formBuilder.group({
+        this.loginForm = this.formBuilder.group({
             username: ["", Validators.required],
             password: ["", Validators.required]
         });
     }
 
     ngOnInit(): void {
+        this.createLoginForm();
     }
 
     login() {
-        if (this.loginGroup.valid) {
-            this.loginDto = Object.assign({}, this.loginGroup.value);
+        if (this.loginForm.valid) {
+            console.log("Login method calisti");
+            this.loginDto = Object.assign({}, this.loginForm.value);
             this.authService.login(this.loginDto);
         }
     }

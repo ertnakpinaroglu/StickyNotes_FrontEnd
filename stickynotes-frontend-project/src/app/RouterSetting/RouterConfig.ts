@@ -7,6 +7,7 @@ import { LoginComponent } from '../Components/LoginComponent/login.component';
 
 const routerManager: Route[] = [
     { path: "", component: BoardComponent, pathMatch: "full" },
+    { path: "board", component: BoardComponent },
     { path: "getBoardList/:boardId", component: BoardListComponent },
     { path: "register", component: RegisterComponent },
     { path: "login", component: LoginComponent }
