@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { BoardService } from '../../Services/board.services';
 import { Board } from '../../Models/board';
 import { Router } from "@angular/router";
+import { TranslateService } from "@ngx-translate/core";
 
 @Component({
     selector: "app-nav",
@@ -12,15 +13,21 @@ import { Router } from "@angular/router";
 
 export class NavComponent implements OnInit {
 
-    constructor(private boardServices: BoardService, private router: Router) {
+    user = {
+        name: 'Arthur',
+        age: 42
+    };
 
+
+    constructor(private boardServices: BoardService, private translateService: TranslateService, private router: Router) {
+        // dil ayarları
+        translateService.setDefaultLang("en");
     }
     allBoards: Board[]
 
 
     ngOnInit(): void {
         this.getBoards();
-
     }
 
     getBoards() {
@@ -29,6 +36,11 @@ export class NavComponent implements OnInit {
 
         });
     }
+
+    switchLanguage(language: string) {
+        this.translateService.use(language);
+    }
+
 
 
 

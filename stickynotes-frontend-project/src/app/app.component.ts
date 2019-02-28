@@ -8,10 +8,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class AppComponent {
   title = 'stickynotes-frontend-project';
 
-  user = {
-    name: 'Arthur',
-    age: 42
-  };
+
   // önemli!
 
   constructor(private translate: TranslateService) {

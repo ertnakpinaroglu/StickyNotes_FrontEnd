@@ -96,6 +96,18 @@
         <a class="nav-link active" href="/login">Login <i class="fa fa-sign-in" aria-hidden="true"></i> </a>
       </li>
 
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+          aria-expanded="false">
+
+          <i class="fa fa-circle-o-notch" aria-hidden="true"></i> Dil </a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#" (click)="switchLanguage('tr')">Turkçe </a>
+          <a class="dropdown-item" href="#" (click)="switchLanguage('en')">İngilizce </a>
+          <a class="dropdown-item" href="#" (click)="switchLanguage('fr')">Fransızca </a>
+        </div>
+      </li>
+
     </ul>
 
 
@@ -106,6 +118,11 @@
   </div>
 </nav>
 
+<h1 translate>Title</h1>
+
+<div>
+  {{ 'Intro' | translate:user }}
+</div>
 <!-- <ul class="nav nav-pills">
   <li class="nav-item">
     <a class="nav-link active" href="#">Active</a>
