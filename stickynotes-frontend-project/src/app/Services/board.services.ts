@@ -32,5 +32,10 @@ export class BoardService implements OnInit {
         return this.httpClient.get<Board>(this.apiUrl + "/Board/GetBoardsById?id=" + boardId);
     }
 
+    getBoardByName(boardName: string): Observable<Board[]> {
+        return this.httpClient.get<Board[]>(this.apiUrl + "Board/SearchBoard?boardName=" + boardName);
+    }
+
+
 
 }

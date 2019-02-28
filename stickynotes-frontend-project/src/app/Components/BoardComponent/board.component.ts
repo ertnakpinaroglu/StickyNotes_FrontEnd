@@ -39,7 +39,6 @@ export class BoardComponent implements OnInit {
         this.boardService.getBoards().subscribe(boards => {
             this.boardList = boards;
 
-
         });
     }
 
@@ -52,6 +51,9 @@ export class BoardComponent implements OnInit {
             this.alertifyService.successMessage(message);
         }
     }
+
+
+
 
 
 }
